@@ -1,14 +1,18 @@
-from itertools import combinations
-
-
 def solution(number, k):
-    answer = ''
-    numbers = []
-    # Find all combinations
-    for i in combinations(number, len(number) - k):
-        temp = ''.join(i)
-        numbers.append(int(temp))
-    answer = str(max(numbers))
+    answer = []
+    for num in number:
+        # While there is something in the answer,
+        # k is greater than 0,
+        # and the last value of the answer is less than the current num
+        while answer and k > 0 and answer[-1] < num:
+            # Remove answer's top value and k - 1
+            answer.pop()
+            k -= 1
+        # The num value must be added in answer
+        answer.append(num)
+
+    # Answer is number's length - k slicing
+    answer = ''.join(answer[:len(number)-k])
     return answer
 
 
