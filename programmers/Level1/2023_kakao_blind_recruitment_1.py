@@ -11,10 +11,24 @@ def solution(today, terms, privacies):
         term[term_name] = int(month)
     
     for i in range(len(privacies)):
-        expiration = datetime.strptime(privacies[i].split()[0], '%Y.%m.%d')
-        expiration = expiration + timedelta(days=(term.get(privacies[i].split()[1])) * 28)
-        print(expiration)
-        if today > expiration:
+        collection = datetime.strptime(privacies[i].split()[0], '%Y.%m.%d')
+        day = term.get(privacies[i].split()[1]) * 28
+        year = collection.year
+        month = collection.month
+        ex_day = collection.day
+        while day != 0:
+            if month == 12 and ex_day == 28:
+                year += 1
+                month = 1
+                ex_day = 1
+            elif ex_day == 28:
+                month += 1
+                ex_day = 1
+            else:
+                ex_day += 1
+            day -= 1
+        expiration = datetime(year, month, ex_day)
+        if expiration <= today:
             answer.append(i + 1)
     return answer
 
