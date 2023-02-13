@@ -11,11 +11,11 @@ for _ in range(n):
 
 arr.sort(reverse=True)
 
-for i in combinations(arr, 3):
-    if i[0] < i[1] + i[2]:
-        answer.append(sum(i))
+for i in range(len(arr) - 2):
+    if arr[i] < arr[i + 1] + arr[i + 2]:
+        answer = arr[i] + arr[i + 1] + arr[i + 2]
+        break
+    else:
+        answer = -1
 
-if answer:
-    print(max(answer))
-else:
-    print(-1)
+print(answer)
