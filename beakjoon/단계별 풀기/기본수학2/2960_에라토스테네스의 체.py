@@ -3,7 +3,7 @@
 def get_prime(N, K):
     count = 0
     arr = [True] * (N + 1)
-    for i in range(2, N):
+    for i in range(2, N + 1):
         if arr[i] == True: # 만약 i가 소수라면
             for j in range(i, N + 1, i):
                 # 이미 지워진 수가 아니라면
