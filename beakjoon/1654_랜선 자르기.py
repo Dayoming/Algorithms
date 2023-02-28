@@ -21,6 +21,10 @@ while start <= end:
     cnt = 0
     mid = (start + end) // 2
 
+    # 반례
+    # 2 3
+    # 1
+    # 1
     if mid == 0:
         result = end
         break
