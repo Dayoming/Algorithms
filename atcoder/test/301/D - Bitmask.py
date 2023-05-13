@@ -2,7 +2,6 @@
 # ?는 각각 0과 1로 교체될 수 있는데,
 # 이를 교체해서 얻을 수 있는 이진수들의 집합에서 정수 N 이하의 수를 출력한다.
 import sys
-from itertools import permutations
 
 s = sys.stdin.readline().rstrip()
 n = int(sys.stdin.readline())
@@ -21,12 +20,11 @@ collection.append(int(format(s.replace('?', '1')), 2))
 binary = list(format(s.replace('?', '0')))
 
 for i in indexes:
-    for j in indexes:
-        binary[j] = '1'
-        temp = int("".join(binary), 2)
-        if temp < n:
-            answer = temp
-        else:
-            break
+    binary[i] = '1'
+    temp = int("".join(binary), 2)
+    if temp < n:
+        answer = temp
+    else:
+        break
     
 print(answer)
