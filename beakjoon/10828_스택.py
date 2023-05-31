@@ -16,13 +16,16 @@ for _ in range(n):
         # 스택에 들어있는 정수가 없는 경우 -1 출력
         else:
             print(-1)
+    # 스택에 들어있는 정수의 개수 출력
     elif command[0] == 'size':
         print(len(stack))
+    # 스택이 비어있으면 1, 아니면 0 출력
     elif command[0] == 'empty':
         if stack:
             print(0)
         else:
             print(1)
+    # 스택의 가장 위에 있는 값 출력, 없으면 -1 출력
     elif command[0] == 'top':
         if stack:
             print(stack[-1])
