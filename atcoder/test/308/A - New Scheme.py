@@ -9,5 +9,6 @@ for i in range(1, len(n)):
         temp = n[i]
     else:
         answer = 'No'
+        break
 
 print(answer)
