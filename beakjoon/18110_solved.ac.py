@@ -23,7 +23,9 @@ for _ in range(n):
 difficulty.sort()
 exclusion = customRound(n * 0.15)
 
+# 아래에서 제외
 del difficulty[0:exclusion]
+# 위에서 제외
 del difficulty[len(difficulty) - exclusion:n]
 
 print(customRound(sum(difficulty) / len(difficulty)))
