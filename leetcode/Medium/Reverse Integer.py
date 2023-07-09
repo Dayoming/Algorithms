@@ -27,7 +27,7 @@ class Solution:
         if answer <= -(2 ** 31) or answer >= 2 ** 31 - 1:
             answer = 0
             
-        return answer        
+        return answer
 
 s = Solution()
 print(s.reverse(1534236469))
